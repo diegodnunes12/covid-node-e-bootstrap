@@ -1,0 +1,30 @@
+{
+  "name": "app-covid",
+  "version": "1.0.0",
+  "description": "Aplicativo de monitoramento da Covid-19",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegodnunes12/covid-node-e-bootstrap.git"
+  },
+  "keywords": [
+    "Covid-19",
+    "coronavirus",
+    "node.js",
+    "node",
+    "boostrap",
+    "mapeamento"
+  ],
+  "author": "Diego Nunes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegodnunes12/covid-node-e-bootstrap/issues"
+  },
+  "homepage": "https://github.com/diegodnunes12/covid-node-e-bootstrap#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
