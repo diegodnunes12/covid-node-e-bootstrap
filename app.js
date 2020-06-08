@@ -1,5 +1,22 @@
+const path = require('path')
 const request = require('request')
+const hbs = require('hbs')
+const express = require('express')
 
+const app = express()
+
+const publicPath = path.join(__dirname, './public')
+const viewsPath = path.join(__dirname, './templates/views')
+const partialsPath = path.join(__dirname, './templates/partials')
+
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+
+hbs.registerPartials(partialsPath)
+
+app.use(express.static(publicPath))
+
+/*
 const getData = (callback) => {
 
     const url = 'https://api.covid19api.com/summary'
@@ -11,10 +28,6 @@ const getData = (callback) => {
         }
 
         const parseJson = resp.body
-
-        /*console.log(parseJson)
-        console.log('------')
-        console.log(parseJson.Global)*/
 
         const data = {
             NewConfirmed : parseJson.Global.NewConfirmed,
@@ -34,5 +47,14 @@ const getData = (callback) => {
 getData((data) => {
     console.log(data.NewConfirmed)
 })
+*/
 
-console.log('teste')
+app.get('', (req, res) => {
+    res.render('index', {
+
+    })
+})
+
+app.listen('3000', () => {
+    console.log('Server is up!!!')
+})
