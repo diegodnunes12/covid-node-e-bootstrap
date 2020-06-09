@@ -16,7 +16,8 @@ hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicPath))
 
-/*
+
+
 const getData = (callback) => {
 
     const url = 'https://api.covid19api.com/summary'
@@ -31,11 +32,11 @@ const getData = (callback) => {
 
         const data = {
             NewConfirmed : parseJson.Global.NewConfirmed,
-            TotalConfirmed : parseJson.Global.NewConfirmed,
-            NewDeaths : parseJson.Global.NewConfirmed,
-            TotalDeaths : parseJson.Global.NewConfirmed,
-            NewRecovered : parseJson.Global.NewConfirmed,
-            TotalRecovered : parseJson.Global.NewConfirmed
+            TotalConfirmed : parseJson.Global.TotalConfirmed,
+            NewDeaths : parseJson.Global.NewDeaths,
+            TotalDeaths : parseJson.Global.TotalDeaths,
+            NewRecovered : parseJson.Global.NewRecovered,
+            TotalRecovered : parseJson.Global.TotalRecovered
         }
 
         callback(data)
@@ -44,15 +45,36 @@ const getData = (callback) => {
 
 }
 
+let obj = {}
+
+let newConfirmed = "0"
+let totalConfirmed = "0"
+let newDeaths = "0"
+let totalDeaths = "0"
+let newRecovered = "0"
+let totalRecovered = "0"
+
 getData((data) => {
-    console.log(data.NewConfirmed)
+    newConfirmed = data.NewConfirmed
+    totalConfirmed = data.TotalConfirmed
+    newDeaths = data.NewDeaths
+    totalDeaths = data.TotalDeaths
+    newRecovered = data.NewRecovered
+    totalRecovered = data.TotalRecovered
+    console.log(newConfirmed)
 })
-*/
 
 app.get('', (req, res) => {
+    
     res.render('index', {
-
+        newConfirmed,
+        totalConfirmed,
+        newDeaths,
+        totalDeaths,
+        newRecovered,
+        totalRecovered
     })
+
 })
 
 app.listen('3000', () => {
