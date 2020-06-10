@@ -36,7 +36,8 @@ const getData = (callback) => {
             NewDeaths : parseJson.Global.NewDeaths,
             TotalDeaths : parseJson.Global.TotalDeaths,
             NewRecovered : parseJson.Global.NewRecovered,
-            TotalRecovered : parseJson.Global.TotalRecovered
+            TotalRecovered : parseJson.Global.TotalRecovered,
+            Countries: parseJson.Countries
         }
 
         callback(data)
@@ -61,7 +62,6 @@ getData((data) => {
     totalDeaths = data.TotalDeaths
     newRecovered = data.NewRecovered
     totalRecovered = data.TotalRecovered
-    console.log(newConfirmed)
 })
 
 app.get('', (req, res) => {
