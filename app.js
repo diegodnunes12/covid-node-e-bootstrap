@@ -56,12 +56,12 @@ let newRecovered = "0"
 let totalRecovered = "0"
 
 getData((data) => {
-    newConfirmed = data.NewConfirmed
-    totalConfirmed = data.TotalConfirmed
-    newDeaths = data.NewDeaths
-    totalDeaths = data.TotalDeaths
-    newRecovered = data.NewRecovered
-    totalRecovered = data.TotalRecovered
+    newConfirmed = data.NewConfirmed.toLocaleString('pt-br')
+    totalConfirmed = data.TotalConfirmed.toLocaleString('pt-br')
+    newDeaths = data.NewDeaths.toLocaleString('pt-br')
+    totalDeaths = data.TotalDeaths.toLocaleString('pt-br')
+    newRecovered = data.NewRecovered.toLocaleString('pt-br')
+    totalRecovered = data.TotalRecovered.toLocaleString('pt-br')
 })
 
 app.get('', (req, res) => {
