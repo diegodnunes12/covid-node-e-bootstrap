@@ -1,0 +1,30 @@
+/**************************************
+**
+**  Author: Diego Nunes
+**  Date: 06/16/2020
+**
+**************************************/
+
+.small, small{
+    font-size: 60%;
+    font-weight: 600;
+}
+
+hr{
+    margin: 10px 0;
+    border:none;
+    height: 3px;
+    width: 30%;
+}
+
+hr.confirmed{    
+    background: #ffc107;    
+}
+
+hr.death{
+    background: #db1a2d;
+}
+
+hr.recovered{
+    background: #036b1b;
+}

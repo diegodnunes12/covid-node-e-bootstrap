@@ -8,70 +8,66 @@
 
     <body>
         {{> header}}
+        <section class="bg-info">
+            <div class="container">
+                <div class="row pt-3 pb-3 text-uppercase text-white">
+                    <div class="col-12 mb-3">
+                        <h1 class="h4">Dados Mundial</h1>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div>
+                            <h2 class="h5">casos <small>total / novos</small>
+                                <hr class="confirmed">
+                            </h2> 
+                            <h3 class="h5">{{totalConfirmed}} / {{newConfirmed}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div>
+                            <h2 class="h5">óbitos <small>total / novos</small>
+                                <hr class="death">
+                            </h2> 
+                            <h3 class="h5">{{totalDeaths}} / {{newDeaths}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div>
+                            <h2 class="h5">recuperados <small>total / novos</small>
+                            <hr class="recovered">
+                            </h2> 
+                            <h3 class="h5">{{totalRecovered}} / {{newRecovered}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-light">
+            <div class="container">
+                <div class="row pt-3 pb-2">
+                    <div class="col-8">
+                        <img id="flag" src="/images/br.png" class="img-fluid mr-2"> Atualizado em: 
+                    </div>
+                    <div class="col-4 text-right">
+                        <form>
+                            <div class="form-group">
+                                <select id="select-country" class="form-control">
+                                    <option value="BR" class="teste">Brasil</option>
+                                    <option value="US">Estados Unidos</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h1 class="display-4">Monitoramento COVID-19</h1>
-                    </div>
-
-                    <div class="col-12">
-
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container-fluid">
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">CASOS</div>
-                                            <div class="card-body">
-                                                <h6>Novos</h6>
-                                                <h4 class="card-title">{{newConfirmed}}</h4>
-                                                <h5 class="mt-4">Total</h5>
-                                                <h3 class="card-title">{{totalConfirmed}}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">ÓBITOS</div>
-                                            <div class="card-body">
-                                                <h6>Novos</h6>
-                                                <h4 class="card-title">{{newDeaths}}</h4>
-                                                <h5 class="mt-4">Total</h5>
-                                                <h3 class="card-title">{{totalDeaths}}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">RECUPERADOS</div>
-                                            <div class="card-body">
-                                                <h6>Novos</h6>
-                                                <h4 class="card-title">{{newRecovered}}</h4>
-                                                <h5 class="mt-4">Total</h5>
-                                                <h3 class="card-title">{{totalRecovered}}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>                               
-
-                            </div>
-                        </div>
-
-                    </div>
+                    
+                    
                     <div class="col-12">
                         <div>
-                            <form>
-
-                                <div class="form-group">
-                                    <label for="select-country">Selecione o país</label>
-                                    <select id="select-country" class="form-control">
-                                        <option value="BR" class="teste">Brasil</option>
-                                        <option value="US">Estados Unidos</option>
-                                    </select>
-                                </div>
-                            </form>
+                            
                         </div>
 
                         <div class="jumbotron jumbotron-fluid">
