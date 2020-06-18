@@ -57,6 +57,7 @@ let totalRecovered = "0"
 
 getData((data) => {
     newConfirmed = data.NewConfirmed.toLocaleString('pt-br')
+    console.log(newConfirmed)
     totalConfirmed = data.TotalConfirmed.toLocaleString('pt-br')
     newDeaths = data.NewDeaths.toLocaleString('pt-br')
     totalDeaths = data.TotalDeaths.toLocaleString('pt-br')

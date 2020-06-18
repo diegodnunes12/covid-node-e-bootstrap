@@ -13,6 +13,10 @@ function getData (countryCode) {
     fetch('https://api.covid19api.com/summary').then( (res) => {
         res.json().then( (data) => {
 
+            $('#confirmedGlobal').text(`${data.Global.TotalConfirmed.toLocaleString('pt-br')} / ${data.Global.NewConfirmed.toLocaleString('pt-br')}`)
+            $('#deathsGlobal').text(`${data.Global.TotalDeaths.toLocaleString('pt-br')} / ${data.Global.NewDeaths.toLocaleString('pt-br')}`)
+            $('#recoveredGlobal').text(`${data.Global.TotalRecovered.toLocaleString('pt-br')} / ${data.Global.NewRecovered.toLocaleString('pt-br')}`)
+
             let country = data.Countries.filter(dt => dt.CountryCode == countryCode)
             let countryDate = new Date(country[0].Date)
 
@@ -28,6 +32,7 @@ function getData (countryCode) {
     } )
 }
 
+// Recupera a data passada UTC e converte para o formato pt-br
 function formatDate(date){
     let day = twoDigitsFormat(date.getDate())
     let month = twoDigitsFormat(date.getMonth() + 1)
@@ -39,6 +44,7 @@ function formatDate(date){
     return (`${day}/${month}/${year} ${hour}:${minute}:${second}`)
 }
 
+// Exige que todos os dados da data e hora tenham dois digítos
 function twoDigitsFormat(date){
     return ("0" + (date)).slice(-2)
 }

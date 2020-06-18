@@ -12,14 +12,14 @@
             <div class="container">
                 <div class="row pt-3 pb-3 text-uppercase text-white">
                     <div class="col-12 mb-3">
-                        <h1 class="h4">Dados Mundial</h1>
+                        <h1 class="h4">Dados Mundiais</h1>
                     </div>
                     <div class="col-md-4 mb-2">
                         <div>
                             <h2 class="h5">casos <small>total / novos</small>
                                 <hr class="confirmed">
                             </h2> 
-                            <h3 class="h5">{{totalConfirmed}} / {{newConfirmed}}</h3>
+                            <h3 id="confirmedGlobal" class="h5">0</h3>
                         </div>
                     </div>
                     <div class="col-md-4 mb-2">
@@ -27,7 +27,7 @@
                             <h2 class="h5">óbitos <small>total / novos</small>
                                 <hr class="death">
                             </h2> 
-                            <h3 class="h5">{{totalDeaths}} / {{newDeaths}}</h3>
+                            <h3 id="deathsGlobal" class="h5">0</h3>
                         </div>
                     </div>
                     <div class="col-md-4 mb-2">
@@ -35,7 +35,7 @@
                             <h2 class="h5">recuperados <small>total / novos</small>
                             <hr class="recovered">
                             </h2> 
-                            <h3 class="h5">{{totalRecovered}} / {{newRecovered}}</h3>
+                            <h3 id="recoveredGlobal" class="h5">0</h3>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-danger ml-auto mr-auto mb-3" style="max-width: 18rem;">
                             <div class="card-header">ÓBITOS</div>
                             <div class="card-body">
                                 <h6>Novos</h6>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-success mb-3  ml-auto" style="max-width: 18rem;">
                             <div class="card-header">RECUPERADOS</div>
                             <div class="card-body">
                                 <h6>Novos</h6>
