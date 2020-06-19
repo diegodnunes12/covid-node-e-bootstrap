@@ -1,5 +1,4 @@
 const path = require('path')
-const request = require('request')
 const hbs = require('hbs')
 const express = require('express')
 
@@ -16,65 +15,9 @@ hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicPath))
 
-
-
-const getData = (callback) => {
-
-    const url = 'https://api.covid19api.com/summary'
-
-    request({url: url, json: true}, (err, resp) => {
-
-        if(err){
-            console.log('Ocorreu algum erro')
-        }
-
-        const parseJson = resp.body
-
-        const data = {
-            NewConfirmed : parseJson.Global.NewConfirmed,
-            TotalConfirmed : parseJson.Global.TotalConfirmed,
-            NewDeaths : parseJson.Global.NewDeaths,
-            TotalDeaths : parseJson.Global.TotalDeaths,
-            NewRecovered : parseJson.Global.NewRecovered,
-            TotalRecovered : parseJson.Global.TotalRecovered,
-            Countries: parseJson.Countries
-        }
-
-        callback(data)
-
-    })
-
-}
-
-let obj = {}
-
-let newConfirmed = "0"
-let totalConfirmed = "0"
-let newDeaths = "0"
-let totalDeaths = "0"
-let newRecovered = "0"
-let totalRecovered = "0"
-
-getData((data) => {
-    newConfirmed = data.NewConfirmed.toLocaleString('pt-br')
-    console.log(newConfirmed)
-    totalConfirmed = data.TotalConfirmed.toLocaleString('pt-br')
-    newDeaths = data.NewDeaths.toLocaleString('pt-br')
-    totalDeaths = data.TotalDeaths.toLocaleString('pt-br')
-    newRecovered = data.NewRecovered.toLocaleString('pt-br')
-    totalRecovered = data.TotalRecovered.toLocaleString('pt-br')
-})
-
 app.get('', (req, res) => {
     
-    res.render('index', {
-        newConfirmed,
-        totalConfirmed,
-        newDeaths,
-        totalDeaths,
-        newRecovered,
-        totalRecovered
-    })
+    res.render('index')
 
 })
 
