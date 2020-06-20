@@ -28,3 +28,9 @@ hr.death{
 hr.recovered{
     background: #036b1b;
 }
+
+footer{
+    background: #072647;
+    color: #fff;
+    font-size: 0.9em;
+}
