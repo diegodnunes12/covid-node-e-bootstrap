@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Mapeamento COVID-19</title>
+        {{> head}}
+    </head>
+
+    <body onload="getDatails()">
+        {{> header}}
+        <section class="bg-light">
+            <div class="container">
+                <div class="row pt-3 pb-2">
+                    <div class="col-8">
+                        <img id="flag" src="/images/br.png" class="img-fluid mr-2"> Atualizado em: <span id="updatedDate"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row mt-3">
+                   <div class="col-12">
+                       <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Casos</th>
+                                <th scope="col">Óbitos</th>
+                                <th scope="col">Recuperados</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table">                                
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+            </div>
+        </section>
+
+        {{> footer}}
+
+    </body>    
+</html>

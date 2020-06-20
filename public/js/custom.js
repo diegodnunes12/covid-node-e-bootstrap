@@ -49,3 +49,44 @@ function twoDigitsFormat(date){
     return ("0" + (date)).slice(-2)
 }
 
+function getDatails(){
+    $('#table').ready(function() {
+        
+        let url = window.location.href;
+        let country = url.split('/').pop()
+        console.log(country)
+
+        fetch(`https://api.covid19api.com/dayone/country/${country}`).then( (res) => {
+        res.json().then( (data) => {
+
+            data.forEach((e, i) => {
+                let tr = document.createElement("tr")
+
+                let date = new Date(data[i].Date)
+                let tdDate = document.createElement("td")
+                tdDate.innerHTML = formatDate(date)
+
+                let tdConfirmed = document.createElement("td")
+                tdConfirmed.innerHTML = data[i].Confirmed
+
+                let tdDeaths = document.createElement("td")
+                tdDeaths.innerHTML = data[i].Deaths
+
+                let tdRecovered = document.createElement("td")
+                tdRecovered.innerHTML = data[i].Recovered
+
+                tr.append(tdDate)
+                tr.append(tdConfirmed)
+                tr.append(tdDeaths)
+                tr.append(tdRecovered)
+
+                $("#table").append(tr)
+            });
+
+            
+        })
+    } )
+
+    });
+}
+

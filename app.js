@@ -21,6 +21,12 @@ app.get('', (req, res) => {
 
 })
 
+app.get('/detalhamento/:id', (req, res) => {
+    
+    res.render('detalhamento')
+
+})
+
 app.listen('3000', () => {
     console.log('Server is up!!!')
 })
