@@ -30,6 +30,8 @@ function getData (countryCode) {
             $('#totalRecovered').text(country[0].TotalRecovered.toLocaleString('pt-br'))
         })
     } )
+
+    $('#details').attr('href', `/detalhamento/${countryCode}`)
 }
 
 // Recupera a data passada UTC e converte para o formato pt-br
@@ -54,7 +56,8 @@ function getDatails(){
         
         let url = window.location.href;
         let country = url.split('/').pop()
-        console.log(country)
+
+        $('#flag').attr('src', `/images/${country}.png`)
 
         fetch(`https://api.covid19api.com/dayone/country/${country}`).then( (res) => {
         res.json().then( (data) => {

@@ -4,6 +4,9 @@
 **  Date: 06/16/2020
 **
 **************************************/
+nav.bg-light{
+    background: #fff!important;
+}
 
 .small, small{
     font-size: 60%;
