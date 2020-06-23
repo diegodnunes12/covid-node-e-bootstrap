@@ -2,6 +2,10 @@ console.log('teste')
 
 getData('BR')
 
+$(document).ready(function(){
+    $('.spinner').css("display","none")
+})
+
 $('#select-country').change(function() {
     let country = $('#select-country').val()
     
@@ -20,7 +24,7 @@ function getData (countryCode) {
             let country = data.Countries.filter(dt => dt.CountryCode == countryCode)
             let countryDate = new Date(country[0].Date)
 
-            $('#updatedDate').text(formatDate(countryDate))
+            $('#updatedDate').text(formatDate(countryDate, true))
 
             $('#newConfirmed').text(country[0].NewConfirmed.toLocaleString('pt-br'))
             $('#totalConfirmed').text(country[0].TotalConfirmed.toLocaleString('pt-br'))
@@ -35,7 +39,7 @@ function getData (countryCode) {
 }
 
 // Recupera a data passada UTC e converte para o formato pt-br
-function formatDate(date){
+function formatDate(date, hasTime){
     let day = twoDigitsFormat(date.getDate())
     let month = twoDigitsFormat(date.getMonth() + 1)
     let year = date.getFullYear()
@@ -43,7 +47,10 @@ function formatDate(date){
     let minute = twoDigitsFormat(date.getMinutes())
     let second = twoDigitsFormat(date.getSeconds())
 
-    return (`${day}/${month}/${year} ${hour}:${minute}:${second}`)
+    if(hasTime) return (`${day}/${month}/${year} ${hour}:${minute}:${second}`)
+
+    else return (`${day}/${month}/${year}`)
+    
 }
 
 // Exige que todos os dados da data e hora tenham dois digítos
@@ -59,16 +66,17 @@ function getDatails(){
 
         $('#flag').attr('src', `/images/${country}.png`)
 
-        fetch(`https://api.covid19api.com/dayone/country/${country}`).then( (res) => {
+        fetch(`https://api.covid19api.com/total/country/${country}`).then( (res) => {
         res.json().then( (data) => {
 
             data.forEach((e, i) => {
                 let tr = document.createElement("tr")
 
                 let date = new Date(data[i].Date)
-                let tdDate = document.createElement("td")
-                tdDate.innerHTML = formatDate(date)
 
+                let tdDate = document.createElement("td")
+                tdDate.innerHTML = formatDate(date, false)
+                
                 let tdConfirmed = document.createElement("td")
                 tdConfirmed.innerHTML = data[i].Confirmed
 
@@ -78,12 +86,14 @@ function getDatails(){
                 let tdRecovered = document.createElement("td")
                 tdRecovered.innerHTML = data[i].Recovered
 
-                tr.append(tdDate)
-                tr.append(tdConfirmed)
-                tr.append(tdDeaths)
-                tr.append(tdRecovered)
+                if(data[i].Confirmed != "0"){
+                    tr.append(tdDate)
+                    tr.append(tdConfirmed)
+                    tr.append(tdDeaths)
+                    tr.append(tdRecovered)
 
-                $("#table").append(tr)
+                    $("#table").append(tr)
+                }
             });
 
             
