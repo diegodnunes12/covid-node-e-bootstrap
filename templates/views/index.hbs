@@ -2,16 +2,13 @@
 
 <html>
     <head>
-        <title>Mapeamento COVID-19</title>
+        <title>Monitoramento COVID-19</title>
+        <meta name="description" content="Monitoramento dos casos da COVID-19 do Brasil e do mundo.">
+        <meta name="keywords" content="covid, covid-19, coronavírus, covid brasil, covid no mundo, monitoramento por pais, quantidade de casos de covid, acompanhamento do coronavirus"> 
         {{> head}}
     </head>
 
     <body>
-        <div class="spinner">
-            <div class="spinner-grow text-info sp" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
         {{> header}}
         <section class="bg-info">
             <div class="container">
@@ -49,10 +46,10 @@
         <section class="bg-light">
             <div class="container">
                 <div class="row pt-3 pb-2">
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <img id="flag" src="/images/br.png" class="img-fluid mr-2"> Atualizado em: <span id="updatedDate"></span>
                     </div>
-                    <div class="col-4 text-right">
+                    <div class="col-md-4 text-right">
                         <form>
                             <div class="form-group">
                                 <select id="select-country" class="form-control">
@@ -121,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 container-btn">
                         <a id="details" href="" class="btn btn-outline-info text-uppercase">acompanhamento diário</a>
                     </div>
                 </div>

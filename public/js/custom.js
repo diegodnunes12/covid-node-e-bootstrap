@@ -2,10 +2,6 @@ console.log('teste')
 
 getData('BR')
 
-$(document).ready(function(){
-    $('.spinner').css("display","none")
-})
-
 $('#select-country').change(function() {
     let country = $('#select-country').val()
     
@@ -78,13 +74,13 @@ function getDatails(){
                 tdDate.innerHTML = formatDate(date, false)
                 
                 let tdConfirmed = document.createElement("td")
-                tdConfirmed.innerHTML = data[i].Confirmed
+                tdConfirmed.innerHTML = data[i].Confirmed.toLocaleString('pt-br')
 
                 let tdDeaths = document.createElement("td")
-                tdDeaths.innerHTML = data[i].Deaths
+                tdDeaths.innerHTML = data[i].Deaths.toLocaleString('pt-br')
 
                 let tdRecovered = document.createElement("td")
-                tdRecovered.innerHTML = data[i].Recovered
+                tdRecovered.innerHTML = data[i].Recovered.toLocaleString('pt-br')
 
                 if(data[i].Confirmed != "0"){
                     tr.append(tdDate)
