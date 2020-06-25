@@ -1,5 +1,3 @@
-console.log('teste')
-
 getData('BR')
 
 $('#select-country').change(function() {

@@ -1,7 +1,8 @@
 # App covid-19
 
 Monitore em tempo real os casos confirmados, número de óbitos e quantidade de pessoas recuperadas do Coronavírus.
-A aplicação traz os dados globais, do Brasil e de alguns outros países como EUA, Reino Unido, China, Itália, Espanha etc
+
+A aplicação traz os dados globais, do Brasil e de alguns outros países como EUA, Reino Unido, China, Itália, Espanha etc.
 
 ## Iniciando 
 
