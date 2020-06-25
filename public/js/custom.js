@@ -3,7 +3,7 @@ getData('BR')
 $('#select-country').change(function() {
     let country = $('#select-country').val()
     
-    $('#flag').attr('src', `/images/${country}.png`)
+    $('#flag').attr('src', `/images/${country.toLowerCase()}.png`)
     getData(country)
 })
 
@@ -58,7 +58,7 @@ function getDatails(){
         let url = window.location.href;
         let country = url.split('/').pop()
 
-        $('#flag').attr('src', `/images/${country}.png`)
+        $('#flag').attr('src', `/images/${country.toLowerCase()}.png`)
 
         fetch(`https://api.covid19api.com/total/country/${country}`).then( (res) => {
         res.json().then( (data) => {
